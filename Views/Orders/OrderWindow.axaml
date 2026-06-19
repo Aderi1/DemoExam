@@ -1,0 +1,155 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+        x:Class="DemoExam.Views.Orders.OrderWindow"
+        Title="Управление заказами"
+        Width="1400"
+        Height="850"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        <!-- Шапка -->
+
+        <Border Grid.Row="0"
+                Background="#2E4057"
+                Padding="15">
+
+            <Grid ColumnDefinitions="*,Auto">
+
+                <StackPanel>
+                    <TextBlock Text="Заказы"
+                               FontSize="28"
+                               FontWeight="Bold"
+                               Foreground="White"/>
+
+                    <TextBlock Name="CountTextBlock"
+                               Foreground="White"
+                               FontSize="14"/>
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+        <!-- Поиск -->
+
+        <Border Grid.Row="1"
+                Padding="15">
+
+            <Grid ColumnDefinitions="3*,Auto"
+                  ColumnSpacing="10">
+
+                <StackPanel>
+                    <TextBlock Text="Поиск по артикулу, клиенту или статусу"/>
+
+                    <TextBox Name="SearchTextBox"
+                             PlaceholderText="Введите текст для поиска"/>
+                </StackPanel>
+
+                <Button Grid.Column="1"
+                        Name="RefreshButton"
+                        Content="Обновить"
+                        Width="120"
+                        VerticalAlignment="Bottom"
+                        Click="RefreshButton_Click"/>
+
+            </Grid>
+
+        </Border>
+
+        <!-- Таблица -->
+
+        <Border Grid.Row="2"
+                Margin="15"
+                BorderThickness="1"
+                BorderBrush="LightGray"
+                CornerRadius="6">
+
+            <dg:DataGrid Name="OrdersDataGrid"
+                         AutoGenerateColumns="False"
+                         GridLinesVisibility="All"
+                         CanUserSortColumns="True"
+                         IsReadOnly="True">
+
+                <dg:DataGrid.Columns>
+
+                    <dg:DataGridTextColumn
+                        Header="№ заказа"
+                        Binding="{ReflectionBinding OrderId}" />
+
+                    <dg:DataGridTextColumn
+                        Header="Артикул"
+                        Binding="{ReflectionBinding ProductArticle}" />
+
+                    <dg:DataGridTextColumn
+                        Header="Дата заказа"
+                        Binding="{ReflectionBinding OrderDate}" />
+
+                    <dg:DataGridTextColumn
+                        Header="Дата доставки"
+                        Binding="{ReflectionBinding DeliveryDate}" />
+
+                    <dg:DataGridTextColumn
+                        Header="Адрес ПВЗ"
+                        Binding="{ReflectionBinding Address}" />
+
+                    <dg:DataGridTextColumn
+                        Header="Клиент"
+                        Binding="{ReflectionBinding FullName}" />
+
+                    <dg:DataGridTextColumn
+                        Header="Код получения"
+                        Binding="{ReflectionBinding ReceiveCode}" />
+
+                    <dg:DataGridTextColumn
+                        Header="Статус"
+                        Binding="{ReflectionBinding Status}" />
+
+                </dg:DataGrid.Columns>
+
+            </dg:DataGrid>
+
+        </Border>
+
+        <!-- Нижняя панель -->
+
+        <Border Grid.Row="3"
+                Padding="15">
+
+            <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto"
+                  ColumnSpacing="10">
+
+                <Button Name="AddOrderButton"
+                        Content="Добавить заказ"
+                        Width="150"
+                        Height="35"
+                        Click="AddOrderButton_Click"/>
+
+                <Button Grid.Column="1"
+                        Name="EditOrderButton"
+                        Content="Изменить заказ"
+                        Width="150"
+                        Height="35"
+                        Click="EditOrderButton_Click"/>
+
+                <Button Grid.Column="2"
+                        Name="DeleteOrderButton"
+                        Content="Удалить заказ"
+                        Width="150"
+                        Height="35"
+                        Click="DeleteOrderButton_Click"/>
+
+                <Button Grid.Column="4"
+                        Name="CloseButton"
+                        Content="Закрыть"
+                        Width="120"
+                        Height="35"
+                        Click="CloseButton_Click"/>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>

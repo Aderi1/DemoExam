@@ -1,0 +1,89 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DemoExam.Views.Login.LoginWindow"
+        Title="Авторизация"
+        Width="900"
+        Height="550"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+
+        <Grid ColumnDefinitions="2*,3*">
+
+                <!-- ЛЕВАЯ ЧАСТЬ -->
+
+                <Border Grid.Column="0"
+                        Background="#2E4057">
+
+                        <StackPanel VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Spacing="15">
+
+                                <!-- ЛОГОТИП -->
+
+                                <!--
+                                ВСТАВИТЬ Image
+                                Source="/Assets/logo.png"
+                                -->
+
+                                <TextBlock Text="ВелосипедДрайв"
+                                           FontSize="28"
+                                           FontWeight="Bold"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center"/>
+
+                                <TextBlock Text="Система управления товарами и заказами"
+                                           FontSize="16"
+                                           Foreground="White"
+                                           TextAlignment="Center"/>
+
+                        </StackPanel>
+
+                </Border>
+
+                <!-- ПРАВАЯ ЧАСТЬ -->
+
+                <Border Grid.Column="1"
+                        Padding="40">
+
+                        <StackPanel VerticalAlignment="Center"
+                                    Spacing="15">
+
+                                <TextBlock Text="Авторизация"
+                                           FontSize="30"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"/>
+
+                                <TextBlock Text="Логин"/>
+
+                                <TextBox Name="LoginTextBox"
+                                         PlaceholderText="Введите логин"/>
+
+                                <TextBlock Text="Пароль"/>
+
+                                <TextBox Name="PasswordTextBox"
+                                         PasswordChar="*"
+                                         PlaceholderText="Введите пароль"/>
+
+                                <Button Name="LoginButton"
+                                        Content="Войти"
+                                        Height="40"
+                                        Click="LoginButton_Click"
+                                        HorizontalAlignment="Center"/>
+
+                                <Button Name="GuestButton"
+                                        Content="Продолжить как гость"
+                                        Height="40"
+                                        Click="GuestButton_Click"
+                                        HorizontalAlignment="Center"/>
+
+                                <TextBlock Name="ErrorTextBlock"
+                                           Foreground="Red"
+                                           IsVisible="False"/>
+
+                        </StackPanel>
+
+                </Border>
+
+        </Grid>
+
+</Window>

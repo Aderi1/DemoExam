@@ -1,0 +1,132 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DemoExam.Views.Products.ProductWindow"
+        Title="ВелосипедДрайв"
+        Width="1400"
+        Height="900"
+        WindowStartupLocation="CenterScreen">
+
+        <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+                <!-- Шапка -->
+
+                <Border Grid.Row="0"
+                        Background="#2E4057"
+                        Padding="15">
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                                <StackPanel>
+                                        <TextBlock Text="ВелосипедДрайв"
+                                                   FontSize="28"
+                                                   FontWeight="Bold"
+                                                   Foreground="White"/>
+
+                                        <TextBlock Name="CountTextBlock"
+                                                   Foreground="White"/>
+                                </StackPanel>
+
+                                <TextBlock Name="UserTextBlock"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Center"
+                                           Foreground="White"
+                                           FontWeight="Bold"/>
+                        </Grid>
+
+                </Border>
+
+                <!-- Поиск и фильтры -->
+
+                <Border Grid.Row="1"
+                        Padding="15">
+
+                        <Grid ColumnDefinitions="3*,2*,2*,Auto"
+                              ColumnSpacing="10">
+
+                                <StackPanel Name="SearchPanel">
+                                        <TextBlock Text="Поиск" Name="SearchTextBlock"/>
+                                        <TextBox Name="SearchTextBox"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1" Name="SortPanel">
+                                        <TextBlock Text="Сортировка"/>
+
+                                        <ComboBox Name="SortComboBox">
+                                                <ComboBoxItem Content="Без сортировки"/>
+                                                <ComboBoxItem Content="Цена ↑"/>
+                                                <ComboBoxItem Content="Цена ↓"/>
+                                        </ComboBox>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2" Name="DisPanel">
+                                        <TextBlock Text="Размер скидки"/>
+
+                                        <ComboBox Name="DiscountComboBox">
+                                                <ComboBoxItem Content="Все диапазоны"/>
+                                                <ComboBoxItem Content="0-11.99%"/>
+                                                <ComboBoxItem Content="12-18.99%"/>
+                                                <ComboBoxItem Content="19% и более"/>
+                                        </ComboBox>
+                                </StackPanel>
+
+                                <Button Grid.Column="3"
+                                        Name="OrdersButton"
+                                        Content="Заказы"
+                                        Width="120"
+                                        Click="OrdersButton_Click"/>
+
+                        </Grid>
+
+                </Border>
+
+                <!-- Список товаров -->
+
+                <ScrollViewer Grid.Row="2">
+
+                        <StackPanel Name="ProductsPanel"
+                                    Margin="10"
+                                    Spacing="10"/>
+
+                </ScrollViewer>
+
+                <!-- Нижняя панель -->
+
+                <Border Grid.Row="3"
+                        Padding="15">
+
+                        <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto"
+                              ColumnSpacing="10">
+
+                                <Button Name="AddButton"
+                                        Content="Добавить"
+                                        Width="120"
+                                        Click="AddButton_Click"
+                                        HorizontalAlignment="Stretch"/>
+
+                                <Button Grid.Column="1"
+                                        Name="EditButton"
+                                        Content="Изменить"
+                                        Width="120"
+                                        Click="EditButton_Click"
+                                        IsVisible="False"/>
+
+                                <Button Grid.Column="2"
+                                        Name="DeleteButton"
+                                        Content="Удалить"
+                                        Width="120"
+                                        Click="DeleteButton_Click"
+                                        IsVisible="False"/>
+
+                                <Button Grid.Column="4"
+                                        Name="ExitButton"
+                                        Content="Выход"
+                                        Width="120"
+                                        Click="ExitButton_Click"/>
+
+                        </Grid>
+
+                </Border>
+
+        </Grid>
+
+</Window>
